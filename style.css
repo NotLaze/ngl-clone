@@ -9,27 +9,53 @@ body {
   height: 100vh;
 }
 
-.box {
+.container {
   text-align: center;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  width: 90%;
+  max-width: 400px;
 }
 
-input, textarea {
+.logo {
+  width: 120px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.example {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+input {
+  width: 100%;
+  padding: 15px;
   margin: 10px 0;
-  padding: 10px;
-  width: 80%;
+  border-radius: 20px;
   border: none;
-  border-radius: 10px;
+  font-size: 16px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
 }
 
 button {
-  background: white;
-  color: black;
+  margin-top: 15px;
+  width: 100%;
+  padding: 14px;
   border: none;
-  padding: 10px 30px;
   border-radius: 20px;
+  background-color: white;
+  color: #f97b3d;
+  font-size: 16px;
+  font-weight: bold;
   cursor: pointer;
 }
