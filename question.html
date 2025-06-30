@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ask Anonymously</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+  <script src="firebase.js"></script>
+</head>
+<body>
+  <div class="box">
+    <h2>Send anonymous question</h2>
+    <textarea id="question" placeholder="Ask something..."></textarea><br>
+    <button onclick="submitQuestion()">Submit</button>
+  </div>
+
+  <script>
+    function submitQuestion() {
+      const username = localStorage.getItem("username");
+      const password = localStorage.getItem("password");
+      const question = document.getElementById("question").value;
+
+      firebase.database().ref("questions").push({
+        username: username,
+        password: password,
+        question: question,
+        timestamp: Date.now()
+      }).then(() => {
+        alert("Question sent!");
+        document.getElementById("question").value = "";
+      });
+    }
+  </script>
+</body>
+</html>
