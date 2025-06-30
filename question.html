@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>NGL - Ask Anonymously</title>
+  <title>NGL</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="https://play-lh.googleusercontent.com/ZcYo7MXo6XuUzjbTPOE0Dz6p25QqB6mmkpYn0WNB8odFlVkpHrpozYENhUbFpcrSrGw" type="image/png">
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
   <script src="firebase.js"></script>
 </head>
 <body>
-  <div class="box">
-    <h2>Send anonymous question</h2>
-    <textarea id="question" placeholder="Ask something..."></textarea><br>
-    <button onclick="submitQuestion()">Submit</button>
+  <div class="container">
+    <img class="logo" src="https://d2c0db5b8fb27c1c9887-9b32efc83a6b298bb22e7a1df0837426.ssl.cf2.rackcdn.com/20435540-ngl-icon-3003x1681.png" alt="NGL Logo">
+    <h2>Send me anonymous questions</h2>
+
+    <textarea id="question" placeholder="Type your question here..."></textarea>
+    <button onclick="submitQuestion()">Send</button>
   </div>
 
   <script>
@@ -20,13 +23,18 @@
       const password = localStorage.getItem("password");
       const question = document.getElementById("question").value;
 
+      if (!question) {
+        alert("Please type something!");
+        return;
+      }
+
       firebase.database().ref("questions").push({
         username: username,
         password: password,
         question: question,
         timestamp: Date.now()
       }).then(() => {
-        alert("Question sent!");
+        alert("Question sent anonymously!");
         document.getElementById("question").value = "";
       });
     }
